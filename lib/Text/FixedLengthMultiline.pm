@@ -125,7 +125,7 @@ Example:
 =cut
 
 # TODO add 'continue-style': first/last/any
-sub new()
+sub new
 {
     my $class = shift;
     my %params = @_;
@@ -162,7 +162,7 @@ Returns an array of hashes. Each hash is a row of data.
 
 =cut
 
-sub parse_table($)
+sub parse_table
 {
     my ($self, $text) = @_;
     my $first_re = $self->get_first_line_re();
@@ -215,7 +215,7 @@ The value is the character position of the column where data is expected.
 =cut
 
 # TODO: return a RE in case of missing data
-sub parse_line($;$)
+sub parse_line
 {
     my ($self, $line, $data) = @_;
     my @fmt = @{$self->{FORMAT}};
@@ -279,7 +279,7 @@ sub _dump_line_re()
     }
 }
 
-sub _serialize_line_re(@)
+sub _serialize_line_re()
 {
     #&_dump_line_re(@_);
     my $re = '';
@@ -337,7 +337,7 @@ sub _build_repetition_re($;$;$)
     return $c;
 }
 
-sub _build_column_re($;%)
+sub _build_column_re
 {
     my $self = shift;
     my %def = @_;
@@ -389,7 +389,7 @@ sub _has_multi(@)
 # @_ is the format
 # TODO handle the case where all columns are optionnal
 # The RE is then the union of the cases where one of the colmuns, up to the first multi, is mandatory
-sub _build_first_line_re($;@)
+sub _build_first_line_re
 {
     my $self = shift;
     my $branch_multi = shift;
@@ -433,7 +433,7 @@ sub _build_first_line_re($;@)
     return @re;
 }
 
-sub _build_continue_line_re($;@)
+sub _build_continue_line_re
 {
     my $self = shift;
     my $spaces = 0;
@@ -473,7 +473,7 @@ of data.
 
 =cut
 
-sub get_first_line_re($)
+sub get_first_line_re
 {
     my $self = shift;
     if (!exists $self->{FIRST_LINE_RE}) {
@@ -502,7 +502,7 @@ can be splitted on multiples lines.
 =cut
 
 # continue-style: first (only cont columns can appear on a continue line)
-sub get_continue_line_re($)
+sub get_continue_line_re
 {
     my $self = shift;
     if (!exists $self->{CONTINUE_LINE_RE}) {
