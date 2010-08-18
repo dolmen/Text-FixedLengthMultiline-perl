@@ -10,13 +10,18 @@
 /MYMETA.*
 
 # Avoid Module::Build generated and utility files.
-/blib
 /Build
 /Build.bat
 /_build
 /Build.COM
 /BUILD.COM
 /build.com
+
+/MANIFEST
+/README
+/META.*
+/blib
+/Makefile.PL
 
 # Avoid archives of this distribution
 /Text-FixedLengthMultiline-*
