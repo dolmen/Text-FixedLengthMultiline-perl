@@ -1,0 +1,22 @@
+# Avoid temp and backup files.
+.*.swp
+*.old
+*.bak
+
+# Avoid Devel::Cover files.
+/cover_db
+
+# Avoid configuration metadata file
+/MYMETA.*
+
+# Avoid Module::Build generated and utility files.
+/blib
+/Build
+/Build.bat
+/_build
+/Build.COM
+/BUILD.COM
+/build.com
+
+# Avoid archives of this distribution
+/Text-FixedLengthMultiline-*
