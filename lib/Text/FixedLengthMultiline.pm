@@ -231,16 +231,6 @@ sub parse_line($;$)
 	    $line =~ /^( {0,$f})/;
 	    $data_len = length $1;
 	    return -($col+$data_len) if $data_len < $f;
-=cut
-	    if (length $line < $f) {
-		$data_len = length $line;
-	       	return -(defined $1 ? $col+length $1 : $col) unless $line =~ /^( *)$/;
-	    } else {
-		$line =~ /^( {0,$f})/;
-		$data_len = length $1;
-		return -($col+$data_len) if $data_len < $f;
-	    }
-=cut
 	} elsif ($f =~ /^(!?)([A-Za-z_]\w*)(?:(~)(.?))?$/) {
 	    my ($mandatory, $field, $multi, $cont) = ($1, $2, $3, $4);
 	    $multi = 0 unless defined $multi;
@@ -358,19 +348,6 @@ sub _build_column_re($;%)
     my ($re_col_mand, $re_col_end, $re_col);
     if ($def{mandatory} || $branch_multi) {
 	$re_col_mand = $re_spaces . $re_label;
-=cut
-	if ($width > 1) {
-	    $re_col =         '.' . ($width > 2 ? '{'.   ($width-1) .'}'  : '' );
-	    if ($def{align} eq 'L') { # Left aligned
-		$re_col_end = '.' . ($width > 2 ? '{0,'. ($width-1) .'}'  : '?');
-	    } else {         # Right aligned
-		$re_col_mand .= $re_col;
-		$re_col_end = $re_col = '';
-	    }
-	} else {
-	    $re_col_end = $re_col = '';
-	}
-=cut
 	if ($def{align} eq 'L') { # Left aligned
 	    $re_col_end =   &_build_repetition_re('.', 0,        $width-1);
 	    unless ($branch_multi) {
