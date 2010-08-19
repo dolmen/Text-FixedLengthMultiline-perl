@@ -102,7 +102,9 @@ C<~> means the column data can be on multiple lines.
 
 =back
 
-=head1 CONSTRUCTOR
+=head1 METHODS
+
+=head2 new()
 
 Arguments:
 
@@ -120,7 +122,7 @@ C<debug>
 
 Example:
 
-  my $format = new Text::FixedLengthMultiline(format => [ 2, col1 => 4, 1, '!col2' => 4 ]);
+  my $format = Text::FixedLengthMultiline->new(format => [ 2, col1 => 4, 1, '!col2' => 4 ]);
 
 =cut
 
@@ -150,7 +152,6 @@ sub new
     return $self;
 }
 
-=head1 METHODS
 
 =head2 C<parse_table($text)>
 
@@ -547,25 +548,44 @@ current name is already long enough!
 
 =back
 
-=head1 HISTORY
 
-2007-03-15 0.04 Removed debug statement. Thanks to Paulo Edgar Castro.
+=head1 SUPPORT
 
-2005-09-30 0.03 Added C<parse_table()> method.
+You can look for information at:
 
-2005-09-26 0.02 Added documentation.
+=over 4
 
-2005-09-25 0.01 Initial release on CPAN.
+=item * RT: CPAN's request tracker
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Text-FixedLengthMultiline>:
+post bug report there.
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/p/Text-FixedLengthMultline>:
+if you use this distibution, please add comments on your experience for other
+users.
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/Text-FixedLengthMultiline/>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Text-FixedLengthMultiline>
+
+=back
+
 
 =head1 LICENSE
 
-Copyright (c) 2005 Olivier Mengué. All rights reserved.
+Copyright (c) 2005-2010 Olivier MenguE<eacute>. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Olivier Mengué, <dolmen@cpan.org>
+Olivier MenguE<eacute>, <dolmen@cpan.org>
 
 =head1 SEE ALSO
 
