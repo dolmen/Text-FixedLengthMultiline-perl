@@ -507,7 +507,7 @@ sub get_continue_line_re
     my $self = shift;
     if (!exists $self->{CONTINUE_LINE_RE}) {
 	my @re = $self->_build_continue_line_re(@{$self->{FORMAT}});
-	&_dump_line_re(@re);
+	#&_dump_line_re(@re);
 	my $re = &_serialize_line_re(@re);
 	$self->{CONTINUE_LINE_RE} = ($re eq '' ? undef : qr/^$re *$/);
     }
