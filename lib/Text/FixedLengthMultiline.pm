@@ -9,7 +9,7 @@ use strict;
 use Carp;
 
 BEGIN {
-    our $VERSION = '0.04';
+    our $VERSION = '0.05';
 }
 
 use constant FIRST => 1;
@@ -27,19 +27,11 @@ my %continue_styles = (
 
 =head1 NAME
 
-Text::FixedLengthMultiline - Parse text data formatted in space
-separated columns optionnaly on multiple lines.
+Text::FixedLengthMultiline - Parse text data formatted in space separated columns optionnaly on multiple lines.
 
 =head1 SYNOPSIS
 
   use Text::FixedLengthMultiline;
-
-  my $fmt = Text::FixedLengthMultiline->new(format => ['!name' => 10, 1, 'comment~' => 20, 1, 'age' => -2 ]);
-
-  # Compute the RegExp that matches the first line
-  my $first_line_re = $fmt->get_first_line_re();
-  # Compute the RegExp that matches a continuation line
-  my $continue_line_re = $fmt->get_continue_line_re();
 
   #234567890 12345678901234567890 12
   my $text = <<EOT;
@@ -50,6 +42,13 @@ separated columns optionnaly on multiple lines.
              or Wally. Where's
              he?
   EOT
+
+  my $fmt = Text::FixedLengthMultiline->new(format => ['!name' => 10, 1, 'comment~' => 20, 1, 'age' => -2 ]);
+
+  # Compute the RegExp that matches the first line
+  my $first_line_re = $fmt->get_first_line_re();
+  # Compute the RegExp that matches a continuation line
+  my $continue_line_re = $fmt->get_continue_line_re();
 
   my @data;
   my $err;
