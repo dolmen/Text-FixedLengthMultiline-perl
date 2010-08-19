@@ -2,7 +2,9 @@
 
 use strict;
 use warnings;
-use Test::More tests => 60;
+use Test::More tests => 61;
+use Test::NoWarnings;
+
 BEGIN { use_ok('Text::FixedLengthMultiline'); }
 
 my $fmt;
