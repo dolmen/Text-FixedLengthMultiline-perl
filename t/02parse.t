@@ -17,7 +17,7 @@ sub new_fmt()
     # Set the global variables
     undef $fmt;
     undef %data;
-    $fmt = new Text::FixedLengthMultiline(@_);
+    $fmt = Text::FixedLengthMultiline->new(@_);
     isa_ok($fmt, 'Text::FixedLengthMultiline', 'Line '.(caller)[2]);
     return $fmt;
 }
